@@ -1,8 +1,8 @@
 # Analogic Appropriation: Children's Participatory Character Combat as Cross-Culturally Recurrent Play Across Three Media Eras
 
-**[Author Name]**
-[Affiliation]
-[Email]
+**heznpc**
+Independent Researcher
+wantcongz@gmail.com
 
 **Preprint — Submitted to MediArXiv**
 **Date: March 2026**
