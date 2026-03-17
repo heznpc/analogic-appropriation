@@ -1,6 +1,8 @@
-# Paper Wars
+# Analogic Appropriation
 
-**"종이 캐릭터 전투"의 교차문화 독립발명과 매체별 재매개 연구**
+**Cross-cultural study of children's paper combat play across three media eras**
+
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Project Overview
 
