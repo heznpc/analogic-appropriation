@@ -42,6 +42,39 @@
       margin: 0 auto;
       padding: 4rem 0 6rem;
     }
+    /* Language switcher */
+    .lang-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 0.25rem;
+      padding: 0.5rem 1rem;
+      flex-wrap: wrap;
+    }
+    .lang-btn {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.72rem;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.2rem 0.55rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .container { padding-top: 5rem; }
     .label {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 0.75rem;
@@ -72,11 +105,7 @@
       flex-wrap: wrap;
     }
     .meta span { white-space: nowrap; }
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 2.5rem 0;
-    }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
     h2 {
       font-size: 1.15rem;
       font-weight: 600;
@@ -84,10 +113,7 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
     p { margin-bottom: 1.2rem; }
-    .abstract {
-      font-size: 0.95rem;
-      color: var(--text);
-    }
+    .abstract { font-size: 0.95rem; color: var(--text); }
     .eras {
       display: grid;
       grid-template-columns: 1fr;
@@ -106,11 +132,7 @@
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
-    .era-card p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 0;
-    }
+    .era-card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 0; }
     .era-num {
       display: inline-block;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -122,12 +144,7 @@
       border-radius: 3px;
       margin-bottom: 0.5rem;
     }
-    .countries {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0 1.5rem;
-    }
+    .countries { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 1.5rem; }
     .tag {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 0.78rem;
@@ -136,19 +153,13 @@
       padding: 0.25rem 0.7rem;
       border-radius: 4px;
     }
-    .links {
-      list-style: none;
-      margin: 1rem 0;
-    }
+    .links { list-style: none; margin: 1rem 0; }
     .links li {
       margin-bottom: 0.6rem;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 0.9rem;
     }
-    .links a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    .links a { color: var(--accent); text-decoration: none; }
     .links a:hover { text-decoration: underline; }
     .footer {
       margin-top: 4rem;
@@ -165,11 +176,14 @@
   </style>
 </head>
 <body>
+
+  <nav class="lang-bar" id="langBar"></nav>
+
   <div class="container">
 
-    <div class="label">Preprint &middot; March 2026</div>
+    <div class="label" data-i18n="label"></div>
     <h1>Analogic Appropriation</h1>
-    <p class="subtitle">Children's Participatory Character Combat as Cross-Culturally Recurrent Play Across Three Media Eras</p>
+    <p class="subtitle" data-i18n="subtitle"></p>
 
     <div class="meta">
       <span>Target: <strong>New Media &amp; Society</strong></span>
@@ -179,73 +193,407 @@
 
     <hr>
 
-    <h2>The Puzzle</h2>
-    <p>Ask a Korean adult about "gonghchaek geim" (notebook RPGs). Ask an American about "Pencil Wars." Ask a Turk about grid-paper empire games. Ask an Indonesian about fold-and-dot paper battles. None of these groups know each other's games exist &mdash; yet the underlying structure is strikingly similar: <em>create characters on paper, establish rules for combat, fight with peers.</em></p>
-    <p>Why does this keep happening, independently, across cultures?</p>
+    <h2 data-i18n="puzzleTitle"></h2>
+    <p data-i18n="puzzleBody"></p>
+    <p data-i18n="puzzleQuestion"></p>
 
     <hr>
 
-    <h2>Three Eras</h2>
+    <h2 data-i18n="erasTitle"></h2>
     <div class="eras">
       <div class="era-card">
         <div class="era-num">ERA 1 &middot; 1970s&ndash;2000s</div>
-        <h3>Analog Appropriation</h3>
-        <p>Children reconstruct inaccessible digital game interfaces on paper &mdash; Korean notebook RPGs mirroring MapleStory, American pencil wars, Turkish grid-paper empires.</p>
+        <h3 data-i18n="era1Title"></h3>
+        <p data-i18n="era1Body"></p>
       </div>
       <div class="era-card">
         <div class="era-num">ERA 2 &middot; 2010s&ndash;2020s</div>
-        <h3>Digital Democratization</h3>
-        <p>The "notebook operator" becomes the Roblox developer. Creation moves into the dominant medium itself. Sharing goes global.</p>
+        <h3 data-i18n="era2Title"></h3>
+        <p data-i18n="era2Body"></p>
       </div>
       <div class="era-card">
         <div class="era-num">ERA 3 &middot; 2025&ndash;</div>
-        <h3>AI-Mediated Folk Art</h3>
-        <p>Italian brainrot &mdash; children generate characters via AI and stage battles on social media. Entry barrier drops to near zero.</p>
+        <h3 data-i18n="era3Title"></h3>
+        <p data-i18n="era3Body"></p>
       </div>
     </div>
 
     <hr>
 
-    <h2>Documented Across 7+ Countries</h2>
+    <h2 data-i18n="countriesTitle"></h2>
     <div class="countries">
-      <span class="tag">Korea &mdash; Notebook RPG</span>
-      <span class="tag">USA &mdash; Pencil Wars</span>
-      <span class="tag">Indonesia &mdash; Perang-perangan</span>
-      <span class="tag">India &mdash; Pen Fight</span>
-      <span class="tag">Turkey &mdash; Grid-Paper Empire</span>
-      <span class="tag">Russia &mdash; Tochki / Klopy</span>
-      <span class="tag">Philippines &mdash; Spaceship</span>
-      <span class="tag">Japan &mdash; Interesting Absence</span>
+      <span class="tag" data-i18n="tagKorea"></span>
+      <span class="tag" data-i18n="tagUSA"></span>
+      <span class="tag" data-i18n="tagIndonesia"></span>
+      <span class="tag" data-i18n="tagIndia"></span>
+      <span class="tag" data-i18n="tagTurkey"></span>
+      <span class="tag" data-i18n="tagRussia"></span>
+      <span class="tag" data-i18n="tagPhilippines"></span>
+      <span class="tag" data-i18n="tagJapan"></span>
     </div>
 
     <hr>
 
-    <h2>Theoretical Framework</h2>
-    <p class="abstract">We propose <em>analogic appropriation</em> as an integrative concept, drawing on Corsaro's (2005) interpretive reproduction, Caillois's (1961) agon and mimicry, de Certeau's (1984) tactics of everyday practice, Vygotsky's (1978) zone of proximal development, and Kafai &amp; Burke's (2016) constructionist gaming. The framework extends Burn &amp; Richards's (2014) foundational work on children's games in the new media age.</p>
+    <h2 data-i18n="frameworkTitle"></h2>
+    <p class="abstract" data-i18n="frameworkBody"></p>
 
     <hr>
 
-    <h2>Repository Contents</h2>
+    <h2 data-i18n="repoTitle"></h2>
     <ul class="links">
-      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/paper/draft.md">Paper Draft</a> &mdash; ~7,200 words, targeting New Media &amp; Society</li>
-      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/paper/outline.md">Outline</a> &mdash; Section-by-section plan</li>
-      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/paper/references.bib">References</a> &mdash; 30 entries (BibTeX)</li>
-      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/survey/design.md">Survey Design</a> &mdash; 8 countries, N=1,000+ target</li>
-      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/survey/questionnaire_ko.md">Questionnaire (Korean)</a></li>
-      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/survey/questionnaire_en.md">Questionnaire (English)</a></li>
-      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/survey/analysis_plan.md">Analysis Plan</a> &mdash; TOST, Bayesian, LCA</li>
-      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/notes/cultural_evidence.md">Cultural Evidence Archive</a> &mdash; Country-by-country documentation</li>
+      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/paper/draft.md" data-i18n="linkDraft"></a></li>
+      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/paper/outline.md" data-i18n="linkOutline"></a></li>
+      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/paper/references.bib" data-i18n="linkRefs"></a></li>
+      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/survey/design.md" data-i18n="linkSurvey"></a></li>
+      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/survey/questionnaire_ko.md" data-i18n="linkQKo"></a></li>
+      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/survey/questionnaire_en.md" data-i18n="linkQEn"></a></li>
+      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/survey/analysis_plan.md" data-i18n="linkAnalysis"></a></li>
+      <li><a href="https://github.com/heznpc/analogic-appropriation/blob/main/notes/cultural_evidence.md" data-i18n="linkEvidence"></a></li>
     </ul>
 
     <hr>
 
-    <h2>Status</h2>
-    <p>Theoretical framework paper complete. Cross-cultural survey in preparation (Phase 1 pilot planned). Preprint submission to MediArXiv pending.</p>
+    <h2 data-i18n="statusTitle"></h2>
+    <p data-i18n="statusBody"></p>
 
     <div class="footer">
       <p><a href="https://github.com/heznpc/analogic-appropriation">GitHub Repository</a> &middot; Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
     </div>
 
   </div>
+
+<script>
+const T = {
+en: {
+  label: "Preprint \u00b7 March 2026",
+  subtitle: "Children\u2019s Participatory Character Combat as Cross-Culturally Recurrent Play Across Three Media Eras",
+  puzzleTitle: "The Puzzle",
+  puzzleBody: "Ask a Korean adult about \u201cgonghchaek geim\u201d (notebook RPGs). Ask an American about \u201cPencil Wars.\u201d Ask a Turk about grid-paper empire games. Ask an Indonesian about fold-and-dot paper battles. None of these groups know each other\u2019s games exist \u2014 yet the underlying structure is strikingly similar: create characters on paper, establish rules for combat, fight with peers.",
+  puzzleQuestion: "Why does this keep happening, independently, across cultures?",
+  erasTitle: "Three Eras",
+  era1Title: "Analog Appropriation",
+  era1Body: "Children reconstruct inaccessible digital game interfaces on paper \u2014 Korean notebook RPGs mirroring MapleStory, American pencil wars, Turkish grid-paper empires.",
+  era2Title: "Digital Democratization",
+  era2Body: "The \u201cnotebook operator\u201d becomes the Roblox developer. Creation moves into the dominant medium itself. Sharing goes global.",
+  era3Title: "AI-Mediated Folk Art",
+  era3Body: "Italian brainrot \u2014 children generate characters via AI and stage battles on social media. Entry barrier drops to near zero.",
+  countriesTitle: "Documented Across 7+ Countries",
+  tagKorea: "Korea \u2014 Notebook RPG",
+  tagUSA: "USA \u2014 Pencil Wars",
+  tagIndonesia: "Indonesia \u2014 Perang-perangan",
+  tagIndia: "India \u2014 Pen Fight",
+  tagTurkey: "Turkey \u2014 Grid-Paper Empire",
+  tagRussia: "Russia \u2014 Tochki / Klopy",
+  tagPhilippines: "Philippines \u2014 Spaceship",
+  tagJapan: "Japan \u2014 Interesting Absence",
+  frameworkTitle: "Theoretical Framework",
+  frameworkBody: "We propose analogic appropriation as an integrative concept, drawing on Corsaro\u2019s (2005) interpretive reproduction, Caillois\u2019s (1961) agon and mimicry, de Certeau\u2019s (1984) tactics of everyday practice, Vygotsky\u2019s (1978) zone of proximal development, and Kafai & Burke\u2019s (2016) constructionist gaming. The framework extends Burn & Richards\u2019s (2014) foundational work on children\u2019s games in the new media age.",
+  repoTitle: "Repository Contents",
+  linkDraft: "Paper Draft \u2014 ~7,200 words, targeting New Media & Society",
+  linkOutline: "Outline \u2014 Section-by-section plan",
+  linkRefs: "References \u2014 30 entries (BibTeX)",
+  linkSurvey: "Survey Design \u2014 8 countries, N=1,000+ target",
+  linkQKo: "Questionnaire (Korean)",
+  linkQEn: "Questionnaire (English)",
+  linkAnalysis: "Analysis Plan \u2014 TOST, Bayesian, LCA",
+  linkEvidence: "Cultural Evidence Archive \u2014 Country-by-country documentation",
+  statusTitle: "Status",
+  statusBody: "Theoretical framework paper complete. Cross-cultural survey in preparation (Phase 1 pilot planned). Preprint submission to MediArXiv pending."
+},
+ko: {
+  label: "\ud504\ub9ac\ud504\ub9b0\ud2b8 \u00b7 2026\ub144 3\uc6d4",
+  subtitle: "\uc138 \ubbf8\ub514\uc5b4 \uc2dc\ub300\uc5d0 \uac78\uce5c \uc544\ub3d9\uc758 \ucc38\uc5ec\uc801 \uce90\ub9ad\ud130 \uc804\ud22c \ub180\uc774\uc758 \uad50\ucc28\ubb38\ud654\uc801 \ubc18\ubcf5 \ud328\ud134",
+  puzzleTitle: "\ud37c\uc990",
+  puzzleBody: "\ud55c\uad6d 90\ub144\ub300\uc0dd\uc5d0\uac8c \u201c\uacf5\ucc45\uac8c\uc784\u201d\uc744 \ubb3c\uc5b4\ubcf4\uc138\uc694. \ubbf8\uad6d 70~80\ub144\ub300\uc0dd\uc5d0\uac8c \u201cPencil Wars\u201d\ub97c \ubb3c\uc5b4\ubcf4\uc138\uc694. \ud130\ud0a4 \uc0ac\ub78c\uc5d0\uac8c \ubaa8\ub208\uc885\uc774 \uc81c\uad6d \uac8c\uc784\uc744 \ubb3c\uc5b4\ubcf4\uc138\uc694. \uc778\ub3c4\ub124\uc2dc\uc544 \uc0ac\ub78c\uc5d0\uac8c \uc885\uc774 \uc811\uc5b4\uc11c \uc810 \ucc0d\ub294 \uc804\uc7c1\ub180\uc774\ub97c \ubb3c\uc5b4\ubcf4\uc138\uc694. \uc774 \uc9d1\ub2e8\ub4e4\uc740 \uc11c\ub85c\uc758 \ub180\uc774\ub97c \ubaa8\ub985\ub2c8\ub2e4 \u2014 \uadf8\ub7ec\ub098 \uae30\ubcf8 \uad6c\uc870\ub294 \ub193\ub77c\uc6b8 \uc815\ub3c4\ub85c \uc720\uc0ac\ud569\ub2c8\ub2e4: \uc885\uc774\uc5d0 \uce90\ub9ad\ud130\ub97c \uadf8\ub9ac\uace0, \uc2f8\uc6c0 \uaddc\uce59\uc744 \uc815\ud558\uace0, \uce5c\uad6c\uc640 \ub300\uacb0\ud569\ub2c8\ub2e4.",
+  puzzleQuestion: "\uc774\uac83\uc774 \uc65c \ubb38\ud654\uad8c\uc744 \ucd08\uc6d4\ud574 \ub3c5\ub9bd\uc801\uc73c\ub85c \ubc18\ubcf5\ub418\ub294 \uac78\uae4c\uc694?",
+  erasTitle: "\uc138 \uc2dc\ub300",
+  era1Title: "\uc544\ub0a0\ub85c\uadf8 \uc804\uc6a9",
+  era1Body: "\uc811\uadfc\ud560 \uc218 \uc5c6\ub294 \ub514\uc9c0\ud138 \uac8c\uc784 \uc778\ud130\ud398\uc774\uc2a4\ub97c \uc885\uc774 \uc704\uc5d0 \uc7ac\uad6c\ucd95 \u2014 \uba54\uc774\ud50c\uc2a4\ud1a0\ub9ac\ub97c \ubcf8\ub5a0 \ud55c\uad6d \uacf5\ucc45RPG, \ubbf8\uad6d \uc5f0\ud544 \uc804\uc7c1, \ud130\ud0a4 \ubaa8\ub208\uc885\uc774 \uc81c\uad6d.",
+  era2Title: "\ub514\uc9c0\ud138 \ubbfc\uc8fc\ud654",
+  era2Body: "\u201c\uacf5\ucc45 \uc6b4\uc601\uc790\u201d\uac00 \ub85c\ube14\ub85d\uc2a4 \uac1c\ubc1c\uc790\ub85c. \ucc3d\uc791\uc774 \uc9c0\ubc30\uc801 \ub9e4\uccb4 \uc790\uccb4\ub85c \uc774\ub3d9. \uacf5\uc720 \ubc94\uc704\uac00 \uc804 \uc138\uacc4\ub85c.",
+  era3Title: "AI \ub9e4\uac1c \ubbfc\uc18d \uc608\uc220",
+  era3Body: "\uc774\ud0c8\ub9ac\uc548 \ube0c\ub808\uc778\ub86f \u2014 \uc544\uc774\ub4e4\uc774 AI\ub85c \uce90\ub9ad\ud130\ub97c \uc0dd\uc131\ud558\uace0 SNS\uc5d0\uc11c \ub300\uacb0\uc2dc\ud0b4. \uc9c4\uc785\uc7a5\ubcbd\uc774 \uac70\uc758 \uc81c\ub85c.",
+  countriesTitle: "7\uac1c\uad6d \uc774\uc0c1\uc5d0\uc11c \ud655\uc778",
+  tagKorea: "\ud55c\uad6d \u2014 \uacf5\ucc45\uac8c\uc784",
+  tagUSA: "\ubbf8\uad6d \u2014 Pencil Wars",
+  tagIndonesia: "\uc778\ub3c4\ub124\uc2dc\uc544 \u2014 Perang-perangan",
+  tagIndia: "\uc778\ub3c4 \u2014 Pen Fight",
+  tagTurkey: "\ud130\ud0a4 \u2014 \ubaa8\ub208\uc885\uc774 \uc81c\uad6d",
+  tagRussia: "\ub7ec\uc2dc\uc544 \u2014 Tochki / Klopy",
+  tagPhilippines: "\ud544\ub9ac\ud540 \u2014 Spaceship",
+  tagJapan: "\uc77c\ubcf8 \u2014 \ud765\ubbf8\ub85c\uc6b4 \u201c\ubd80\uc7ac\u201d",
+  frameworkTitle: "\uc774\ub860\uc801 \ud504\ub808\uc784\uc6cc\ud06c",
+  frameworkBody: "Corsaro(2005)\uc758 \ud574\uc11d\uc801 \uc7ac\uc0dd\uc0b0, Caillois(1961)\uc758 \uc544\uace4/\ubbf8\ubbf8\ud06c\ub9ac, de Certeau(1984)\uc758 \uc77c\uc0c1\uc758 \uc804\uc220, Vygotsky(1978)\uc758 \uadfc\uc811\ubc1c\ub2ec\uc601\uc5ed, Kafai & Burke(2016)\uc758 \uad6c\uc131\uc8fc\uc758\uc801 \uac8c\uc784 \uc81c\uc791\uc744 \ud1b5\ud569\ud558\uc5ec \u201c\uc544\ub0a0\ub85c\uadf8 \uc804\uc6a9(analogic appropriation)\u201d\uc744 \uc81c\uc548\ud569\ub2c8\ub2e4. Burn & Richards(2014)\uc758 \uc120\ud589 \uc5f0\uad6c\ub97c \ud655\uc7a5\ud569\ub2c8\ub2e4.",
+  repoTitle: "\ub808\ud3ec\uc9c0\ud1a0\ub9ac \uad6c\uc131",
+  linkDraft: "\ub17c\ubb38 \ucd08\uace0 \u2014 ~7,200\ub2e8\uc5b4, New Media & Society \ud0c0\uac9f",
+  linkOutline: "\uc544\uc6c3\ub77c\uc778 \u2014 \uc139\uc158\ubcc4 \uacc4\ud68d",
+  linkRefs: "\ucc38\uace0\ubb38\ud5cc \u2014 30\ud3b8 (BibTeX)",
+  linkSurvey: "\uc124\ubb38 \uc124\uacc4 \u2014 8\uac1c\uad6d, N=1,000+ \ubaa9\ud45c",
+  linkQKo: "\uc124\ubb38\uc9c0 (\ud55c\uad6d\uc5b4)",
+  linkQEn: "\uc124\ubb38\uc9c0 (\uc601\uc5b4)",
+  linkAnalysis: "\ubd84\uc11d \uacc4\ud68d \u2014 TOST, Bayesian, LCA",
+  linkEvidence: "\ubb38\ud654\uc801 \uc99d\uac70 \uc544\uce74\uc774\ube0c \u2014 \uad6d\uac00\ubcc4 \ubb38\uc11c",
+  statusTitle: "\uc9c4\ud589 \uc0c1\ud669",
+  statusBody: "\uc774\ub860 \ud504\ub808\uc784\uc6cc\ud06c \ub17c\ubb38 \uc644\uc131. \uad50\ucc28\ubb38\ud654 \uc124\ubb38 \uc900\ube44 \uc911 (Phase 1 \ud30c\uc77c\ub7ff \uc608\uc815). MediArXiv \ud504\ub9ac\ud504\ub9b0\ud2b8 \ud22c\uace0 \ub300\uae30 \uc911."
+},
+ja: {
+  label: "\u30d7\u30ec\u30d7\u30ea\u30f3\u30c8 \u00b7 2026\u5e743\u6708",
+  subtitle: "3\u3064\u306e\u30e1\u30c7\u30a3\u30a2\u6642\u4ee3\u306b\u304a\u3051\u308b\u5b50\u3069\u3082\u306e\u53c2\u52a0\u578b\u30ad\u30e3\u30e9\u30af\u30bf\u30fc\u30d0\u30c8\u30eb\u904a\u3073\u306e\u7570\u6587\u5316\u6a2a\u65ad\u7684\u53cd\u5fa9\u30d1\u30bf\u30fc\u30f3",
+  puzzleTitle: "\u30d1\u30ba\u30eb",
+  puzzleBody: "\u97d3\u56fd\u306e90\u5e74\u4ee3\u751f\u307e\u308c\u306b\u300c\u30ce\u30fc\u30c8\u30b2\u30fc\u30e0\u300d\u3092\u805e\u3044\u3066\u307f\u3066\u304f\u3060\u3055\u3044\u3002\u30a2\u30e1\u30ea\u30ab\u306e70\uff5e80\u5e74\u4ee3\u751f\u307e\u308c\u306b\u300cPencil Wars\u300d\u3092\u3002\u30c8\u30eb\u30b3\u4eba\u306b\u65b9\u773c\u7d19\u306e\u5e1d\u56fd\u30b2\u30fc\u30e0\u3092\u3002\u30a4\u30f3\u30c9\u30cd\u30b7\u30a2\u4eba\u306b\u7d19\u3092\u6298\u3063\u3066\u70b9\u3092\u6253\u3064\u6226\u4e89\u904a\u3073\u3092\u3002\u3053\u308c\u3089\u306e\u30b0\u30eb\u30fc\u30d7\u306f\u4e92\u3044\u306e\u904a\u3073\u3092\u77e5\u308a\u307e\u305b\u3093 \u2014 \u305d\u308c\u306a\u306e\u306b\u57fa\u672c\u69cb\u9020\u306f\u9a5a\u304f\u307b\u3069\u4f3c\u3066\u3044\u307e\u3059\uff1a\u7d19\u306b\u30ad\u30e3\u30e9\u30af\u30bf\u30fc\u3092\u63cf\u304d\u3001\u6226\u3044\u306e\u30eb\u30fc\u30eb\u3092\u6c7a\u3081\u3001\u53cb\u9054\u3068\u5bfe\u6226\u3059\u308b\u3002",
+  puzzleQuestion: "\u306a\u305c\u3053\u308c\u304c\u6587\u5316\u3092\u8d85\u3048\u3066\u72ec\u7acb\u7684\u306b\u7e70\u308a\u8fd4\u3055\u308c\u308b\u306e\u3067\u3057\u3087\u3046\u304b\uff1f",
+  erasTitle: "3\u3064\u306e\u6642\u4ee3",
+  era1Title: "\u30a2\u30ca\u30ed\u30b0\u7684\u5c02\u6709",
+  era1Body: "\u30a2\u30af\u30bb\u30b9\u3067\u304d\u306a\u3044\u30c7\u30b8\u30bf\u30eb\u30b2\u30fc\u30e0\u306eUI\u3092\u7d19\u306e\u4e0a\u306b\u518d\u69cb\u7bc9 \u2014 \u30e1\u30a4\u30d7\u30eb\u30b9\u30c8\u30fc\u30ea\u30fc\u3092\u6a21\u3057\u305f\u97d3\u56fd\u306e\u30ce\u30fc\u30c8RPG\u3001\u30a2\u30e1\u30ea\u30ab\u306e\u925b\u7b46\u6226\u4e89\u3001\u30c8\u30eb\u30b3\u306e\u65b9\u773c\u7d19\u5e1d\u56fd\u3002",
+  era2Title: "\u30c7\u30b8\u30bf\u30eb\u6c11\u4e3b\u5316",
+  era2Body: "\u300c\u30ce\u30fc\u30c8\u904b\u55b6\u8005\u300d\u304cRoblox\u958b\u767a\u8005\u306b\u3002\u5275\u4f5c\u304c\u652f\u914d\u7684\u30e1\u30c7\u30a3\u30a2\u305d\u306e\u3082\u306e\u306e\u4e2d\u3078\u3002\u5171\u6709\u7bc4\u56f2\u304c\u4e16\u754c\u898f\u6a21\u306b\u3002",
+  era3Title: "AI\u5a92\u4ecb\u30d5\u30a9\u30fc\u30af\u30a2\u30fc\u30c8",
+  era3Body: "\u30a4\u30bf\u30ea\u30a2\u30f3\u30d6\u30ec\u30a4\u30f3\u30ed\u30c3\u30c8 \u2014 \u5b50\u3069\u3082\u304cAI\u3067\u30ad\u30e3\u30e9\u3092\u751f\u6210\u3057SNS\u3067\u30d0\u30c8\u30eb\u3002\u53c2\u5165\u969c\u58c1\u304c\u307b\u307c\u30bc\u30ed\u306b\u3002",
+  countriesTitle: "7\u30f6\u56fd\u4ee5\u4e0a\u3067\u78ba\u8a8d",
+  tagKorea: "\u97d3\u56fd \u2014 \u30ce\u30fc\u30c8RPG",
+  tagUSA: "\u30a2\u30e1\u30ea\u30ab \u2014 Pencil Wars",
+  tagIndonesia: "\u30a4\u30f3\u30c9\u30cd\u30b7\u30a2 \u2014 Perang-perangan",
+  tagIndia: "\u30a4\u30f3\u30c9 \u2014 Pen Fight",
+  tagTurkey: "\u30c8\u30eb\u30b3 \u2014 \u65b9\u773c\u7d19\u5e1d\u56fd",
+  tagRussia: "\u30ed\u30b7\u30a2 \u2014 Tochki / Klopy",
+  tagPhilippines: "\u30d5\u30a3\u30ea\u30d4\u30f3 \u2014 Spaceship",
+  tagJapan: "\u65e5\u672c \u2014 \u8208\u5473\u6df1\u3044\u300c\u4e0d\u5728\u300d",
+  frameworkTitle: "\u7406\u8ad6\u7684\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af",
+  frameworkBody: "Corsaro(2005)\u306e\u89e3\u91c8\u7684\u518d\u751f\u7523\u3001Caillois(1961)\u306e\u30a2\u30b4\u30f3/\u30df\u30df\u30af\u30ea\u3001de Certeau(1984)\u306e\u65e5\u5e38\u306e\u6226\u8853\u3001Vygotsky(1978)\u306e\u6700\u8fd1\u63a5\u767a\u9054\u9818\u57df\u3001Kafai & Burke(2016)\u306e\u69cb\u6210\u4e3b\u7fa9\u7684\u30b2\u30fc\u30e0\u5236\u4f5c\u3092\u7d71\u5408\u3057\u3001\u300canalogic appropriation\u300d\u3092\u63d0\u6848\u3057\u307e\u3059\u3002Burn & Richards(2014)\u306e\u5148\u884c\u7814\u7a76\u3092\u62e1\u5f35\u3057\u307e\u3059\u3002",
+  repoTitle: "\u30ea\u30dd\u30b8\u30c8\u30ea\u69cb\u6210",
+  linkDraft: "\u8ad6\u6587\u8349\u7a3f \u2014 \u7d047,200\u8a9e\u3001New Media & Society\u30bf\u30fc\u30b2\u30c3\u30c8",
+  linkOutline: "\u30a2\u30a6\u30c8\u30e9\u30a4\u30f3 \u2014 \u30bb\u30af\u30b7\u30e7\u30f3\u5225\u8a08\u753b",
+  linkRefs: "\u53c2\u8003\u6587\u732e \u2014 30\u4ef6 (BibTeX)",
+  linkSurvey: "\u8abf\u67fb\u8a2d\u8a08 \u2014 8\u30f6\u56fd\u3001N=1,000+\u76ee\u6a19",
+  linkQKo: "\u8abf\u67fb\u7968 (\u97d3\u56fd\u8a9e)",
+  linkQEn: "\u8abf\u67fb\u7968 (\u82f1\u8a9e)",
+  linkAnalysis: "\u5206\u6790\u8a08\u753b \u2014 TOST, Bayesian, LCA",
+  linkEvidence: "\u6587\u5316\u7684\u8a3c\u62e0\u30a2\u30fc\u30ab\u30a4\u30d6 \u2014 \u56fd\u5225\u8cc7\u6599",
+  statusTitle: "\u9032\u6357\u72b6\u6cc1",
+  statusBody: "\u7406\u8ad6\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\u8ad6\u6587\u5b8c\u6210\u3002\u7570\u6587\u5316\u8abf\u67fb\u6e96\u5099\u4e2d\uff08Phase 1\u30d1\u30a4\u30ed\u30c3\u30c8\u4e88\u5b9a\uff09\u3002MediArXiv\u30d7\u30ec\u30d7\u30ea\u30f3\u30c8\u6295\u7a3f\u5f85\u6a5f\u4e2d\u3002"
+},
+pt: {
+  label: "Preprint \u00b7 Mar\u00e7o 2026",
+  subtitle: "Combate participativo de personagens como brincadeira recorrente entre culturas em tr\u00eas eras de m\u00eddia",
+  puzzleTitle: "O Enigma",
+  puzzleBody: "Pergunte a um coreano adulto sobre \u201cgonghchaek geim\u201d (RPGs de caderno). Pergunte a um americano sobre \u201cPencil Wars.\u201d Pergunte a um turco sobre jogos de imp\u00e9rio em papel quadriculado. Pergunte a um indon\u00e9sio sobre batalhas de dobrar-e-pontilhar no papel. Nenhum desses grupos sabe que os jogos dos outros existem \u2014 mas a estrutura \u00e9 surpreendentemente similar: criar personagens no papel, estabelecer regras de combate, lutar com colegas.",
+  puzzleQuestion: "Por que isso continua acontecendo, independentemente, entre culturas?",
+  erasTitle: "Tr\u00eas Eras",
+  era1Title: "Apropria\u00e7\u00e3o Anal\u00f3gica",
+  era1Body: "Crian\u00e7as reconstroem interfaces de jogos digitais inacess\u00edveis no papel \u2014 RPGs de caderno coreanos espelhando MapleStory, guerras de l\u00e1pis americanas, imp\u00e9rios turcos em papel quadriculado.",
+  era2Title: "Democratiza\u00e7\u00e3o Digital",
+  era2Body: "O \u201coperador de caderno\u201d se torna o desenvolvedor do Roblox. A cria\u00e7\u00e3o se move para dentro do meio dominante. O compartilhamento se torna global.",
+  era3Title: "Arte Popular Mediada por IA",
+  era3Body: "Italian brainrot \u2014 crian\u00e7as geram personagens via IA e encenam batalhas nas redes sociais. A barreira de entrada cai para quase zero.",
+  countriesTitle: "Documentado em 7+ Pa\u00edses",
+  tagKorea: "Coreia \u2014 RPG de Caderno",
+  tagUSA: "EUA \u2014 Pencil Wars",
+  tagIndonesia: "Indon\u00e9sia \u2014 Perang-perangan",
+  tagIndia: "\u00cdndia \u2014 Pen Fight",
+  tagTurkey: "Turquia \u2014 Imp\u00e9rio em Papel",
+  tagRussia: "R\u00fassia \u2014 Tochki / Klopy",
+  tagPhilippines: "Filipinas \u2014 Spaceship",
+  tagJapan: "Jap\u00e3o \u2014 Aus\u00eancia Interessante",
+  frameworkTitle: "Quadro Te\u00f3rico",
+  frameworkBody: "Propomos a apropria\u00e7\u00e3o anal\u00f3gica como conceito integrativo, baseado na reprodu\u00e7\u00e3o interpretativa de Corsaro (2005), agon e mimicry de Caillois (1961), t\u00e1ticas de de Certeau (1984), ZPD de Vygotsky (1978) e gaming construcionista de Kafai & Burke (2016). Estende o trabalho de Burn & Richards (2014).",
+  repoTitle: "Conte\u00fado do Reposit\u00f3rio",
+  linkDraft: "Rascunho \u2014 ~7.200 palavras, alvo New Media & Society",
+  linkOutline: "Esbo\u00e7o \u2014 Plano por se\u00e7\u00e3o",
+  linkRefs: "Refer\u00eancias \u2014 30 entradas (BibTeX)",
+  linkSurvey: "Desenho da Pesquisa \u2014 8 pa\u00edses, N=1.000+",
+  linkQKo: "Question\u00e1rio (Coreano)",
+  linkQEn: "Question\u00e1rio (Ingl\u00eas)",
+  linkAnalysis: "Plano de An\u00e1lise \u2014 TOST, Bayesiano, LCA",
+  linkEvidence: "Arquivo de Evid\u00eancias Culturais",
+  statusTitle: "Status",
+  statusBody: "Artigo de framework te\u00f3rico completo. Pesquisa cross-cultural em prepara\u00e7\u00e3o (piloto Phase 1 planejado). Submiss\u00e3o de preprint ao MediArXiv pendente."
+},
+tr: {
+  label: "\u00d6n bask\u0131 \u00b7 Mart 2026",
+  subtitle: "\u00dc\u00e7 medya d\u00f6neminde \u00e7ocuklar\u0131n kat\u0131l\u0131mc\u0131 karakter sava\u015f oyununun k\u00fclt\u00fcrler aras\u0131 yinelenen kal\u0131b\u0131",
+  puzzleTitle: "Bulmaca",
+  puzzleBody: "Korelilere \u201cdefter oyunu\u201d, Amerikal\u0131lara \u201cPencil Wars\u201d, T\u00fcrklere kareli defterde imparatorluk oyunu, Endonezyalılara ka\u011f\u0131t katlayarak oynanan sava\u015f oyununu sorun. Bu gruplar\u0131n hi\u00e7biri di\u011ferlerinin oyunlar\u0131n\u0131 bilmiyor \u2014 ama temel yap\u0131 \u015fa\u015f\u0131rt\u0131c\u0131 derecede benzer: ka\u011f\u0131da karakterler \u00e7iz, sava\u015f kurallar\u0131 belirle, arkada\u015flarla sava\u015f.",
+  puzzleQuestion: "Bu neden k\u00fclt\u00fcrler aras\u0131 ba\u011f\u0131ms\u0131z olarak tekrarlan\u0131yor?",
+  erasTitle: "\u00dc\u00e7 D\u00f6nem",
+  era1Title: "Analog Sahiplenme",
+  era1Body: "\u00c7ocuklar eri\u015femedikleri dijital oyun aray\u00fczlerini ka\u011f\u0131t \u00fczerinde yeniden in\u015fa ediyor \u2014 Kore defter RPG\u2019leri, Amerikan kalem sava\u015flar\u0131, T\u00fcrk kareli defter imparatorluklar\u0131.",
+  era2Title: "Dijital Demokratikle\u015fme",
+  era2Body: "\u201cDefter operat\u00f6r\u00fc\u201d Roblox geli\u015ftiricisine d\u00f6n\u00fc\u015f\u00fcyor. Yarat\u0131c\u0131l\u0131k bizzat egemen medyan\u0131n i\u00e7ine ta\u015f\u0131n\u0131yor. Payla\u015f\u0131m k\u00fcreselle\u015fiyor.",
+  era3Title: "Yapay Zeka Arac\u0131l\u0131\u011f\u0131yla Halk Sanat\u0131",
+  era3Body: "\u0130talyan brainrot \u2014 \u00e7ocuklar YZ ile karakter \u00fcretiyor ve sosyal medyada sava\u015ft\u0131r\u0131yor. Giri\u015f engeli neredeyse s\u0131f\u0131ra d\u00fc\u015f\u00fcyor.",
+  countriesTitle: "7+ \u00dclkede Belgelendi",
+  tagKorea: "Kore \u2014 Defter RPG",
+  tagUSA: "ABD \u2014 Pencil Wars",
+  tagIndonesia: "Endonezya \u2014 Perang-perangan",
+  tagIndia: "Hindistan \u2014 Pen Fight",
+  tagTurkey: "T\u00fcrkiye \u2014 Kareli Defter \u0130mparatorlu\u011fu",
+  tagRussia: "Rusya \u2014 Tochki / Klopy",
+  tagPhilippines: "Filipinler \u2014 Spaceship",
+  tagJapan: "Japonya \u2014 \u0130lgin\u00e7 \u201cYokluk\u201d",
+  frameworkTitle: "Teorik \u00c7er\u00e7eve",
+  frameworkBody: "Corsaro\u2019nun (2005) yorumlay\u0131c\u0131 yeniden \u00fcretimi, Caillois\u2019nin (1961) agon ve mimicry s\u0131n\u0131flamas\u0131, de Certeau\u2019nun (1984) g\u00fcndelik ya\u015fam taktikleri, Vygotsky\u2019nin (1978) yak\u0131nsak geli\u015fim alan\u0131 ve Kafai & Burke\u2019\u0131n (2016) yap\u0131land\u0131rmac\u0131 oyun tasar\u0131m\u0131n\u0131 birle\u015ftirerek \u201canalogic appropriation\u201d \u00f6neriyoruz. Burn & Richards (2014) \u00e7al\u0131\u015fmas\u0131n\u0131 geni\u015fletir.",
+  repoTitle: "Depo \u0130\u00e7eri\u011fi",
+  linkDraft: "Makale Tasla\u011f\u0131 \u2014 ~7.200 kelime",
+  linkOutline: "Anahat \u2014 B\u00f6l\u00fcm plan\u0131",
+  linkRefs: "Kaynak\u00e7a \u2014 30 giri\u015f (BibTeX)",
+  linkSurvey: "Anket Tasar\u0131m\u0131 \u2014 8 \u00fclke, N=1.000+",
+  linkQKo: "Anket (Korece)",
+  linkQEn: "Anket (\u0130ngilizce)",
+  linkAnalysis: "Analiz Plan\u0131 \u2014 TOST, Bayesian, LCA",
+  linkEvidence: "K\u00fclt\u00fcrel Kan\u0131t Ar\u015fivi",
+  statusTitle: "Durum",
+  statusBody: "Teorik \u00e7er\u00e7eve makalesi tamamland\u0131. K\u00fclt\u00fcrler aras\u0131 anket haz\u0131rlan\u0131yor. MediArXiv \u00f6n bask\u0131 g\u00f6nderimi beklemede."
+},
+id: {
+  label: "Pracetak \u00b7 Maret 2026",
+  subtitle: "Permainan karakter tempur partisipatif anak sebagai pola lintas budaya berulang di tiga era media",
+  puzzleTitle: "Teka-teki",
+  puzzleBody: "Tanyakan orang Korea dewasa tentang \u201cgonghchaek geim\u201d (RPG buku catatan). Tanyakan orang Amerika tentang \u201cPencil Wars.\u201d Tanyakan orang Turki tentang permainan kerajaan di kertas kotak-kotak. Tanyakan orang Indonesia tentang perang-perangan di kertas lipat. Tak satu pun dari kelompok ini tahu permainan kelompok lain \u2014 namun strukturnya sangat mirip: buat karakter di kertas, tetapkan aturan pertempuran, bertarung dengan teman.",
+  puzzleQuestion: "Mengapa ini terus terjadi secara mandiri di berbagai budaya?",
+  erasTitle: "Tiga Era",
+  era1Title: "Apropriasi Analog",
+  era1Body: "Anak-anak merekonstruksi antarmuka game digital yang tak terjangkau di atas kertas \u2014 RPG buku catatan Korea meniru MapleStory, perang pensil Amerika, kerajaan kertas kotak-kotak Turki.",
+  era2Title: "Demokratisasi Digital",
+  era2Body: "\u201cOperator buku catatan\u201d menjadi developer Roblox. Kreasi masuk ke medium dominan itu sendiri. Berbagi menjadi global.",
+  era3Title: "Seni Rakyat Berbasis AI",
+  era3Body: "Italian brainrot \u2014 anak-anak menghasilkan karakter via AI dan mengadu mereka di media sosial. Hambatan masuk mendekati nol.",
+  countriesTitle: "Terdokumentasi di 7+ Negara",
+  tagKorea: "Korea \u2014 RPG Buku Catatan",
+  tagUSA: "AS \u2014 Pencil Wars",
+  tagIndonesia: "Indonesia \u2014 Perang-perangan",
+  tagIndia: "India \u2014 Pen Fight",
+  tagTurkey: "Turki \u2014 Kerajaan Kertas Kotak",
+  tagRussia: "Rusia \u2014 Tochki / Klopy",
+  tagPhilippines: "Filipina \u2014 Spaceship",
+  tagJapan: "Jepang \u2014 Ketiadaan Menarik",
+  frameworkTitle: "Kerangka Teoretis",
+  frameworkBody: "Kami mengusulkan analogic appropriation sebagai konsep integratif, berdasarkan reproduksi interpretatif Corsaro (2005), agon dan mimicry Caillois (1961), taktik de Certeau (1984), ZPD Vygotsky (1978), dan game konstruksionis Kafai & Burke (2016). Memperluas karya Burn & Richards (2014).",
+  repoTitle: "Isi Repositori",
+  linkDraft: "Draf Makalah \u2014 ~7.200 kata",
+  linkOutline: "Kerangka \u2014 Rencana per bagian",
+  linkRefs: "Referensi \u2014 30 entri (BibTeX)",
+  linkSurvey: "Desain Survei \u2014 8 negara, N=1.000+",
+  linkQKo: "Kuesioner (Korea)",
+  linkQEn: "Kuesioner (Inggris)",
+  linkAnalysis: "Rencana Analisis \u2014 TOST, Bayesian, LCA",
+  linkEvidence: "Arsip Bukti Kultural",
+  statusTitle: "Status",
+  statusBody: "Makalah kerangka teoretis selesai. Survei lintas budaya dalam persiapan (pilot Phase 1 direncanakan). Pengajuan pracetak ke MediArXiv menunggu."
+},
+de: {
+  label: "Preprint \u00b7 M\u00e4rz 2026",
+  subtitle: "Partizipatives Charakterkampfspiel von Kindern als interkulturell wiederkehrendes Muster \u00fcber drei Medienepochen",
+  puzzleTitle: "Das R\u00e4tsel",
+  puzzleBody: "Fragen Sie einen koreanischen Erwachsenen nach \u201eNotizbuch-Spielen\u201c. Fragen Sie einen Amerikaner nach \u201ePencil Wars\u201c. Fragen Sie einen T\u00fcrken nach Karopapier-Imperiumsspielen. Fragen Sie einen Indonesier nach Falt-und-Punkt-Papierschlachten. Keine dieser Gruppen kennt die Spiele der anderen \u2014 doch die Grundstruktur ist verbl\u00fcffend \u00e4hnlich: Charaktere auf Papier zeichnen, Kampfregeln festlegen, mit Freunden k\u00e4mpfen.",
+  puzzleQuestion: "Warum passiert das immer wieder, unabh\u00e4ngig voneinander, \u00fcber Kulturen hinweg?",
+  erasTitle: "Drei Epochen",
+  era1Title: "Analoge Aneignung",
+  era1Body: "Kinder rekonstruieren unzug\u00e4ngliche digitale Spiel-Interfaces auf Papier \u2014 koreanische Notizbuch-RPGs nach MapleStory-Vorbild, amerikanische Bleistiftkriege, t\u00fcrkische Karopapier-Imperien.",
+  era2Title: "Digitale Demokratisierung",
+  era2Body: "Der \u201eNotizbuch-Operator\u201c wird zum Roblox-Entwickler. Sch\u00f6pfung bewegt sich ins dominante Medium selbst. Teilen wird global.",
+  era3Title: "KI-vermittelte Volkskunst",
+  era3Body: "Italian brainrot \u2014 Kinder generieren Charaktere per KI und inszenieren K\u00e4mpfe in sozialen Medien. Die Einstiegsh\u00fcrde sinkt gegen null.",
+  countriesTitle: "In 7+ L\u00e4ndern dokumentiert",
+  tagKorea: "Korea \u2014 Notizbuch-RPG",
+  tagUSA: "USA \u2014 Pencil Wars",
+  tagIndonesia: "Indonesien \u2014 Perang-perangan",
+  tagIndia: "Indien \u2014 Pen Fight",
+  tagTurkey: "T\u00fcrkei \u2014 Karopapier-Imperium",
+  tagRussia: "Russland \u2014 Tochki / Klopy",
+  tagPhilippines: "Philippinen \u2014 Spaceship",
+  tagJapan: "Japan \u2014 Interessante Abwesenheit",
+  frameworkTitle: "Theoretischer Rahmen",
+  frameworkBody: "Wir schlagen analogic appropriation als integratives Konzept vor, basierend auf Corsaros (2005) interpretativer Reproduktion, Caillois\u2019 (1961) Agon und Mimikry, de Certeaus (1984) Alltagstaktiken, Vygotskys (1978) Zone der n\u00e4chsten Entwicklung und Kafai & Burkes (2016) konstruktionistischem Gaming. Erweitert die Arbeit von Burn & Richards (2014).",
+  repoTitle: "Repository-Inhalt",
+  linkDraft: "Manuskript \u2014 ~7.200 W\u00f6rter",
+  linkOutline: "Gliederung \u2014 Abschnittsplan",
+  linkRefs: "Literaturverzeichnis \u2014 30 Eintr\u00e4ge (BibTeX)",
+  linkSurvey: "Umfrage-Design \u2014 8 L\u00e4nder, N=1.000+",
+  linkQKo: "Fragebogen (Koreanisch)",
+  linkQEn: "Fragebogen (Englisch)",
+  linkAnalysis: "Analyseplan \u2014 TOST, Bayes, LCA",
+  linkEvidence: "Kulturelles Evidenz-Archiv",
+  statusTitle: "Status",
+  statusBody: "Theoretischer Rahmen abgeschlossen. Interkulturelle Umfrage in Vorbereitung (Phase-1-Pilot geplant). MediArXiv-Preprint-Einreichung ausstehend."
+},
+hi: {
+  label: "\u092a\u094d\u0930\u0940\u092a\u094d\u0930\u093f\u0902\u091f \u00b7 \u092e\u093e\u0930\u094d\u091a 2026",
+  subtitle: "\u0924\u0940\u0928 \u092e\u0940\u0921\u093f\u092f\u093e \u092f\u0941\u0917\u094b\u0902 \u092e\u0947\u0902 \u092c\u091a\u094d\u091a\u094b\u0902 \u0915\u0947 \u0938\u0939\u092d\u093e\u0917\u0940 \u091a\u0930\u093f\u0924\u094d\u0930 \u092f\u0941\u0926\u094d\u0927 \u0916\u0947\u0932 \u0915\u093e \u0905\u0902\u0924\u0930-\u0938\u093e\u0902\u0938\u094d\u0915\u0943\u0924\u093f\u0915 \u0906\u0935\u0930\u094d\u0924\u0940 \u092a\u0948\u091f\u0930\u094d\u0928",
+  puzzleTitle: "\u092a\u0939\u0947\u0932\u0940",
+  puzzleBody: "\u0915\u093f\u0938\u0940 \u0915\u094b\u0930\u093f\u092f\u093e\u0908 \u0935\u092f\u0938\u094d\u0915 \u0938\u0947 \u201c\u0928\u094b\u091f\u092c\u0941\u0915 RPG\u201d \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u092a\u0942\u091b\u0947\u0902\u0964 \u0915\u093f\u0938\u0940 \u0905\u092e\u0947\u0930\u093f\u0915\u0940 \u0938\u0947 \u201cPencil Wars\u201d \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902\u0964 \u0915\u093f\u0938\u0940 \u0924\u0941\u0930\u094d\u0915 \u0938\u0947 \u0917\u094d\u0930\u093f\u0921 \u092a\u0947\u092a\u0930 \u0938\u093e\u092e\u094d\u0930\u093e\u091c\u094d\u092f \u0916\u0947\u0932 \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902\u0964 \u0915\u093f\u0938\u0940 \u0907\u0902\u0921\u094b\u0928\u0947\u0936\u093f\u092f\u093e\u0908 \u0938\u0947 \u0915\u093e\u0917\u091c\u093c \u092e\u094b\u0921\u093c\u0915\u0930 \u0932\u0921\u093c\u093e\u0908 \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902\u0964 \u0907\u0928 \u0938\u092e\u0942\u0939\u094b\u0902 \u092e\u0947\u0902 \u0938\u0947 \u0915\u094b\u0908 \u0926\u0942\u0938\u0930\u094b\u0902 \u0915\u0947 \u0916\u0947\u0932 \u0928\u0939\u0940\u0902 \u091c\u093e\u0928\u0924\u093e \u2014 \u0932\u0947\u0915\u093f\u0928 \u092e\u0942\u0932 \u0938\u0902\u0930\u091a\u0928\u093e \u0939\u0948\u0930\u093e\u0928\u0940\u091c\u0928\u0915 \u0930\u0942\u092a \u0938\u0947 \u0938\u092e\u093e\u0928 \u0939\u0948: \u0915\u093e\u0917\u091c\u093c \u092a\u0930 \u092a\u093e\u0924\u094d\u0930 \u092c\u0928\u093e\u0913, \u0932\u0921\u093c\u093e\u0908 \u0915\u0947 \u0928\u093f\u092f\u092e \u0924\u092f \u0915\u0930\u094b, \u0926\u094b\u0938\u094d\u0924\u094b\u0902 \u0915\u0947 \u0938\u093e\u0925 \u0932\u0921\u093c\u094b\u0964",
+  puzzleQuestion: "\u092f\u0939 \u0938\u0902\u0938\u094d\u0915\u0943\u0924\u093f\u092f\u094b\u0902 \u092e\u0947\u0902 \u0938\u094d\u0935\u0924\u0902\u0924\u094d\u0930 \u0930\u0942\u092a \u0938\u0947 \u092c\u093e\u0930-\u092c\u093e\u0930 \u0915\u094d\u092f\u094b\u0902 \u0939\u094b\u0924\u093e \u0939\u0948?",
+  erasTitle: "\u0924\u0940\u0928 \u092f\u0941\u0917",
+  era1Title: "\u090f\u0928\u093e\u0932\u0949\u0917 \u0905\u092a\u0928\u092f\u0928",
+  era1Body: "\u092c\u091a\u094d\u091a\u0947 \u0905\u092a\u094d\u0930\u093e\u092a\u094d\u092f \u0921\u093f\u091c\u093f\u091f\u0932 \u0917\u0947\u092e \u0907\u0902\u091f\u0930\u092b\u093c\u0947\u0938 \u0915\u094b \u0915\u093e\u0917\u091c\u093c \u092a\u0930 \u092a\u0941\u0928\u0930\u094d\u0928\u093f\u0930\u094d\u092e\u093f\u0924 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902 \u2014 MapleStory \u0915\u094b \u0926\u0930\u094d\u092a\u0923 \u0915\u0930\u0924\u0940 \u0915\u094b\u0930\u093f\u092f\u093e\u0908 \u0928\u094b\u091f\u092c\u0941\u0915 RPG, \u0905\u092e\u0947\u0930\u093f\u0915\u0940 \u092a\u0947\u0902\u0938\u093f\u0932 \u0935\u0949\u0930\u094d\u0938, \u0924\u0941\u0930\u094d\u0915\u0940 \u0917\u094d\u0930\u093f\u0921 \u092a\u0947\u092a\u0930 \u0938\u093e\u092e\u094d\u0930\u093e\u091c\u094d\u092f\u0964",
+  era2Title: "\u0921\u093f\u091c\u093f\u091f\u0932 \u0932\u094b\u0915\u0924\u0902\u0924\u094d\u0930\u0940\u0915\u0930\u0923",
+  era2Body: "\u201c\u0928\u094b\u091f\u092c\u0941\u0915 \u0911\u092a\u0930\u0947\u091f\u0930\u201d Roblox \u0921\u0947\u0935\u0932\u092a\u0930 \u092c\u0928 \u091c\u093e\u0924\u093e \u0939\u0948\u0964 \u0930\u091a\u0928\u093e \u092a\u094d\u0930\u092e\u0941\u0916 \u092e\u093e\u0927\u094d\u092f\u092e \u092e\u0947\u0902 \u0939\u0940 \u0939\u094b\u0928\u0947 \u0932\u0917\u0924\u0940 \u0939\u0948\u0964 \u0938\u093e\u091d\u093e\u0915\u0930\u0928\u093e \u0935\u0948\u0936\u094d\u0935\u093f\u0915 \u0939\u094b \u091c\u093e\u0924\u093e \u0939\u0948\u0964",
+  era3Title: "AI-\u092e\u0927\u094d\u092f\u0938\u094d\u0925 \u0932\u094b\u0915 \u0915\u0932\u093e",
+  era3Body: "Italian brainrot \u2014 \u092c\u091a\u094d\u091a\u0947 AI \u0938\u0947 \u0915\u0948\u0930\u0947\u0915\u094d\u091f\u0930 \u092c\u0928\u093e\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u0938\u094b\u0936\u0932 \u092e\u0940\u0921\u093f\u092f\u093e \u092a\u0930 \u0932\u0921\u093c\u093e\u0924\u0947 \u0939\u0948\u0902\u0964 \u092a\u094d\u0930\u0935\u0947\u0936 \u092c\u093e\u0927\u093e \u0932\u0917\u092d\u0917 \u0936\u0942\u0928\u094d\u092f\u0964",
+  countriesTitle: "7+ \u0926\u0947\u0936\u094b\u0902 \u092e\u0947\u0902 \u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c\u0940\u0915\u0943\u0924",
+  tagKorea: "\u0915\u094b\u0930\u093f\u092f\u093e \u2014 \u0928\u094b\u091f\u092c\u0941\u0915 RPG",
+  tagUSA: "\u0905\u092e\u0947\u0930\u093f\u0915\u093e \u2014 Pencil Wars",
+  tagIndonesia: "\u0907\u0902\u0921\u094b\u0928\u0947\u0936\u093f\u092f\u093e \u2014 Perang-perangan",
+  tagIndia: "\u092d\u093e\u0930\u0924 \u2014 Pen Fight",
+  tagTurkey: "\u0924\u0941\u0930\u094d\u0915\u0940 \u2014 \u0917\u094d\u0930\u093f\u0921 \u092a\u0947\u092a\u0930 \u0938\u093e\u092e\u094d\u0930\u093e\u091c\u094d\u092f",
+  tagRussia: "\u0930\u0942\u0938 \u2014 Tochki / Klopy",
+  tagPhilippines: "\u092b\u093c\u093f\u0932\u0940\u092a\u0940\u0902\u0938 \u2014 Spaceship",
+  tagJapan: "\u091c\u093e\u092a\u093e\u0928 \u2014 \u0926\u093f\u0932\u091a\u0938\u094d\u092a \u201c\u0905\u0928\u0941\u092a\u0938\u094d\u0925\u093f\u0924\u093f\u201d",
+  frameworkTitle: "\u0938\u0948\u0926\u094d\u0927\u093e\u0902\u0924\u093f\u0915 \u0922\u093e\u0901\u091a\u093e",
+  frameworkBody: "Corsaro (2005) \u0915\u0940 \u0935\u094d\u092f\u093e\u0916\u094d\u092f\u093e\u0924\u094d\u092e\u0915 \u092a\u0941\u0928\u0930\u0941\u0924\u094d\u092a\u093e\u0926\u0928, Caillois (1961) \u0915\u0947 agon \u0914\u0930 mimicry, de Certeau (1984) \u0915\u0940 \u0930\u094b\u091c\u093c\u092e\u0930\u094d\u0930\u093e \u0915\u0940 \u0930\u0923\u0928\u0940\u0924\u093f\u092f\u093e\u0901, Vygotsky (1978) \u0915\u093e ZPD, \u0914\u0930 Kafai & Burke (2016) \u0915\u0947 \u0930\u091a\u0928\u093e\u0935\u093e\u0926\u0940 \u0917\u0947\u092e\u093f\u0902\u0917 \u0915\u094b \u090f\u0915\u0940\u0915\u0943\u0924 \u0915\u0930\u0924\u0947 \u0939\u0941\u090f \u201canalogic appropriation\u201d \u092a\u094d\u0930\u0938\u094d\u0924\u093e\u0935\u093f\u0924 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902\u0964",
+  repoTitle: "\u0930\u093f\u092a\u0949\u091c\u093f\u091f\u0930\u0940 \u0938\u093e\u092e\u0917\u094d\u0930\u0940",
+  linkDraft: "\u0936\u094b\u0927 \u092a\u0924\u094d\u0930 \u092e\u0938\u094c\u0926\u093e \u2014 ~7,200 \u0936\u092c\u094d\u0926",
+  linkOutline: "\u0930\u0942\u092a\u0930\u0947\u0916\u093e \u2014 \u0905\u0928\u0941\u092d\u093e\u0917\u0935\u093e\u0930 \u092f\u094b\u091c\u0928\u093e",
+  linkRefs: "\u0938\u0902\u0926\u0930\u094d\u092d \u2014 30 \u092a\u094d\u0930\u0935\u093f\u0937\u094d\u091f\u093f\u092f\u093e\u0901 (BibTeX)",
+  linkSurvey: "\u0938\u0930\u094d\u0935\u0947\u0915\u094d\u0937\u0923 \u0921\u093f\u091c\u093c\u093e\u0907\u0928 \u2014 8 \u0926\u0947\u0936, N=1,000+",
+  linkQKo: "\u092a\u094d\u0930\u0936\u094d\u0928\u093e\u0935\u0932\u0940 (\u0915\u094b\u0930\u093f\u092f\u093e\u0908)",
+  linkQEn: "\u092a\u094d\u0930\u0936\u094d\u0928\u093e\u0935\u0932\u0940 (\u0905\u0902\u0917\u094d\u0930\u0947\u091c\u093c\u0940)",
+  linkAnalysis: "\u0935\u093f\u0936\u094d\u0932\u0947\u0937\u0923 \u092f\u094b\u091c\u0928\u093e \u2014 TOST, Bayesian, LCA",
+  linkEvidence: "\u0938\u093e\u0902\u0938\u094d\u0915\u0943\u0924\u093f\u0915 \u0938\u093e\u0915\u094d\u0937\u094d\u092f \u0938\u0902\u0917\u094d\u0930\u0939",
+  statusTitle: "\u0938\u094d\u0925\u093f\u0924\u093f",
+  statusBody: "\u0938\u0948\u0926\u094d\u0927\u093e\u0902\u0924\u093f\u0915 \u0922\u093e\u0901\u091a\u093e \u0936\u094b\u0927 \u092a\u0924\u094d\u0930 \u092a\u0942\u0930\u094d\u0923\u0964 \u0905\u0902\u0924\u0930-\u0938\u093e\u0902\u0938\u094d\u0915\u0943\u0924\u093f\u0915 \u0938\u0930\u094d\u0935\u0947\u0915\u094d\u0937\u0923 \u0924\u0948\u092f\u093e\u0930\u0940 \u092e\u0947\u0902\u0964 MediArXiv \u092a\u094d\u0930\u0940\u092a\u094d\u0930\u093f\u0902\u091f \u092a\u094d\u0930\u0938\u094d\u0924\u0941\u0924\u093f \u0932\u0902\u092c\u093f\u0924\u0964"
+}
+};
+
+const LANGS = [
+  { code: "en", label: "EN" },
+  { code: "ko", label: "\ud55c" },
+  { code: "ja", label: "\u65e5" },
+  { code: "pt", label: "PT" },
+  { code: "tr", label: "TR" },
+  { code: "id", label: "ID" },
+  { code: "de", label: "DE" },
+  { code: "hi", label: "\u0939\u093f" }
+];
+
+function setLang(code) {
+  const strings = T[code] || T.en;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (strings[key]) el.textContent = strings[key];
+  });
+  document.documentElement.lang = code;
+  document.querySelectorAll(".lang-btn").forEach(b => {
+    b.classList.toggle("active", b.dataset.lang === code);
+  });
+  try { localStorage.setItem("lang", code); } catch(e) {}
+}
+
+(function init() {
+  const bar = document.getElementById("langBar");
+  LANGS.forEach(l => {
+    const btn = document.createElement("button");
+    btn.className = "lang-btn";
+    btn.dataset.lang = l.code;
+    btn.textContent = l.label;
+    btn.addEventListener("click", () => setLang(l.code));
+    bar.appendChild(btn);
+  });
+  const saved = (() => { try { return localStorage.getItem("lang"); } catch(e) { return null; } })();
+  const browserLang = (navigator.language || "").slice(0, 2);
+  const initial = saved || (T[browserLang] ? browserLang : "en");
+  setLang(initial);
+})();
+</script>
+
 </body>
 </html>
