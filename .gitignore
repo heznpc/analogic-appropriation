@@ -16,3 +16,8 @@ survey/responses/
 
 # Drafts / personal notes
 *.draft.bak
+
+# Local
+TODO.md
+CLAUDE.md
+.claude/
