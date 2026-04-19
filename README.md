@@ -28,20 +28,25 @@
 ## Directory Structure
 
 ```
-paperWars/
-├── README.md                 ← 이 파일
-├── paper/
-│   ├── outline.md            ← 논문 아웃라인
-│   ├── draft.md              ← MediArXiv 투고용 초고
-│   └── references.bib        ← 참고문헌 (BibTeX)
-├── survey/
-│   ├── design.md             ← 설문 설계 문서
-│   ├── questionnaire_ko.md   ← 한국어 설문지
-│   ├── questionnaire_en.md   ← 영어 설문지
-│   └── analysis_plan.md      ← 분석 계획
-└── notes/
-    ├── sources.md            ← 수집된 소스/증거 정리
-    └── cultural_evidence.md  ← 국가별 증거 아카이브
+analogic-appropriation/
+├── paper/                        Domain -- manuscript source of truth
+│   ├── main.tex
+│   ├── references.bib
+│   └── supplementary.md
+├── experiments/
+│   └── src/survey/               Survey instrument package
+│       ├── design.md
+│       ├── questionnaire_ko.md
+│       ├── questionnaire_en.md
+│       └── analysis_plan.md
+├── literature/
+│   ├── sources.md                수집된 소스/증거
+│   └── cultural_evidence.md      국가별 증거 아카이브
+├── planning/
+│   ├── TODO.md, review.md, decisions.md
+│   └── drafts/                   draft.md, outline.md (superseded)
+└── docs/                         GitHub Pages landing
+    └── index.html
 ```
 
 ## Key Thesis
