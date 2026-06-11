@@ -1,7 +1,7 @@
 # Analogic Appropriation
 
 Research Program: 6 (Analogy / theory layer)
-Status: Under review — New Media & Society (2026 submission, manuscript in compression pass; survey IRB pending)
+Status: Draft — not submitted (NMS-format manuscript in compression pass; survey IRB pending)
 Relationship to other work: Theory layer for Program 6; companions are [pythia](https://github.com/heznpc/pythia) (divination ↔ LLM analogy) and [whetstone](https://github.com/heznpc/whetstone) (education science).
 
 ---

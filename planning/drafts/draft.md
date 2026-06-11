@@ -2,9 +2,8 @@
 
 **heznpc**
 Independent Researcher
-wantcongz@gmail.com
 
-**Preprint — Submitted to MediArXiv**
+**Preprint draft — not posted**
 **Date: March 2026**
 
 ---
